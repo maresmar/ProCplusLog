@@ -29,15 +29,15 @@ The program needs command line argument, which specifies an input file. The inte
 The program could be exited by writing `halt.`
 
 # Standalone Prolog library
-Library developer entry point is in `ProCplusLog.hpp`. Here you can work with `composed_terms` and `variable_terms`. Every object has a template parameter which specifies the type of term functors and names of variables. So you can have `foo(bar)` or `51(10)` or whatever you want and has `operator==` (for printing it should also support `std::ostream& operator<< (std::ostream& stream, const T& sth)`
+Library developer entry point is in `ProCplusLog.hpp`. Here you can work with `composed_terms` and `variable_terms`. Every object has a template parameter which specifies the type of term functors and names of variables. So you can have `foo(bar)` or `51(10)` or whatever you want and has `operator==` (for printing it should also support `std::ostream& operator<< (std::ostream& stream, const T& sth)`)
 
 ~~~C++
+prolog::composed_term<> foo("foo");
 prolog::variable_term<> X("X");
 prolog::variable_term<> Y("Y");
-prolog::composed_term<> foo("foo");
-
 foo.add_arg(X);
 foo.add_arg(Y);
+// Creates foo(X,Y)
 
 prolog::composed_term<> another("fool");
 another.add_arg(prolog::composed_term<>("sth");
@@ -50,13 +50,11 @@ for (const auto& bin : bindings)
     if(bin.second.second.is_default_consrued(is_default_construed); // is binded to variable? (or term)
         std::cout << bin.first << " -> " << bin.second.second<< std::endl; // Prints binded variable
     else
-		    std::cout << bin.first << " -> " << bin.second.second<< std::endl; // Prints binded term
+        std::cout << bin.first << " -> " << bin.second.second<< std::endl; // Prints binded term
 /*
-prints:
 X -> sth
 Y -> M
 M -> M
-
 */
 ~~~
-For more examples and demos see [PrologTests.cpp file](https://github.com/mmrmartin/ProCplusLog/blob/master/ProCplusLog/PrologTests.cpp).
+For more examples and demos see [PrologTests.cpp file](https://github.com/mmrmartin/ProCplusLog/blob/master/ProCplusLog/PrologTests.cpp). You can also use `rules` and `database` to store terms and search terms. And `solver` for looking for solutions (gives you results to your question based on the database).
