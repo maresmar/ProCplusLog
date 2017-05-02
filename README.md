@@ -47,10 +47,10 @@ prolog::result_bindings<> bindings;
 bool b = prolog::unify(foo, another, bindings); // = true
 
 for (const auto& bin : bindings)
-    if(bin.second.second.is_default_construed(); // is binded to variable? (or term)
-        std::cout << bin.first << " -> " << bin.second.second<< std::endl; // Prints binded variable
+    if(bin.second.second.is_default_construed()) // is binded to variable? (or term)
+        std::cout << bin.first << " -> " << bin.second.first << std::endl; // Prints binded variable
     else
-        std::cout << bin.first << " -> " << bin.second.second<< std::endl; // Prints binded term
+        std::cout << bin.first << " -> " << bin.second.second << std::endl; // Prints binded term
 /*
 X -> sth
 Y -> M
