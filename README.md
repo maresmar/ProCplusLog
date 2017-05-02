@@ -40,8 +40,8 @@ foo.add_arg(Y);
 // Creates foo(X,Y)
 
 prolog::composed_term<> another("fool");
-another.add_arg(prolog::composed_term<>("sth");
-another.add_arg(prolog::variable_term<>("Var");
+another.add_arg(prolog::composed_term<>("sth"));
+another.add_arg(prolog::variable_term<>("Var"));
 
 prolog::result_bindings<> bindings;
 bool b = prolog::unify(foo, another, bindings); // = true
