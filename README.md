@@ -7,8 +7,8 @@ The program uses standard SWI-Prolog syntax. Composed terms start with a lower c
 
 ~~~Prolog
 % commnet line
-% composed term with two variables and one atom
-fact(Variable, bar, AnotherVariable, _).
+% composed term with three variables and one atom
+fact(Variable, atom, AnotherVariable, _).
 % rules
 rule(X,Y):-foo(X),bar(Y).
 rule(X,_):-bar(X),!. % Prolog cut
